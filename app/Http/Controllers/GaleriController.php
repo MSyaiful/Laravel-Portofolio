@@ -12,6 +12,10 @@ use App\Http\Controllers\Controller;
 
 class GaleriController extends Controller
 {
+    public function api()
+    {
+        return response(Galeri::all());
+    }
     
     public function get()
     {

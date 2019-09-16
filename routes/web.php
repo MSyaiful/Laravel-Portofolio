@@ -103,3 +103,11 @@ Route::get('/galeri/export_pdf', 'GaleriController@pdf')->name('print.galeri');
 
 Route::get('/galeri/json','GaleriController@json');
 
+Route::get('/transaction','TransactionController');
+
+// Route::get('/kirimemail', 'BlogMsyaifulController@send');
+
+Route::post('/kirimemail', 'BlogMsyaifulController@send')->name('send.mail');
+Auth::routes(['verify' => true]);
+Route::get('/home', 'HomeController@index')->name('home');
+

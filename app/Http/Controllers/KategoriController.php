@@ -14,7 +14,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        return response(Kategori::all());
     }
 
     /**
@@ -22,9 +22,12 @@ class KategoriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $kateapi = new Kategori;
+        $kateapi->nama = $request->nama;
+        $kateapi->save();
+        return"Data berhasil ditambahkan";
     }
 
     /**
@@ -33,9 +36,13 @@ class KategoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $nama = $request->nama;
+        $kateapi = Kategori::find($id);
+        $kateapi->nama = $nama;
+        $kateapi->save();
+        return "Data berhasil diubah";
     }
 
     /**
@@ -44,9 +51,11 @@ class KategoriController extends Controller
      * @param  \App\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function show(kategori $kategori)
+    public function delete($id)
     {
-        //
+        $kateapi = Kategori::find($id);
+        $kateapi->delete();
+        return "Data berhasil dihapus";
     }
 
     /**

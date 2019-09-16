@@ -16,3 +16,16 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get("/galeriapi", "GaleriController@api");
+Route::get("/kategoriapi", "KategoriController@index");
+Route::post("/kategoriapi", "KategoriController@create");
+Route::put("/kategoriapi/{id}", "KategoriController@store");
+Route::delete("/kategoriapi/{id}", "KategoriController@delete");
+
+Route::post('register', 'UserController@register');
+Route::post('login', 'UserController@login');
+Route::get('book', 'BookController@book');
+Route::get('bookall', 'BookController@bookAuth')->middleware('jwt.verify');
+Route::get('user', 'UserController@getAuthenticatedUser')->middleware('jwt.verify');
+

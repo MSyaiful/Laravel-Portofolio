@@ -57,7 +57,8 @@
                                 Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('galeri')}}" style="color: white;"><i class="fas fa-images"></i> Gallery</a>
+                            <a class="nav-link" href="{{url('galeri')}}" style="color: white;"><i
+                                    class="fas fa-images"></i> Gallery</a>
                         </li>
                         @else
                         <li class="nav-item">
@@ -80,15 +81,18 @@
                                 Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('menuartikel')}}" style="color: white;"><i class="fas fa-clone"></i>
+                            <a class="nav-link" href="{{url('menuartikel')}}" style="color: white;"><i
+                                    class="fas fa-clone"></i>
                                 Posting Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('member')}}" style="color: white;"><i class="fas fa-user-plus"></i>
+                            <a class="nav-link" href="{{url('member')}}" style="color: white;"><i
+                                    class="fas fa-user-plus"></i>
                                 Membership</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('galeri')}}" style="color: white;"><i class="fas fa-images"></i> Gallery</a>
+                            <a class="nav-link" href="{{url('galeri')}}" style="color: white;"><i
+                                    class="fas fa-images"></i> Gallery</a>
                         </li>
                         @endguest
                     </ul>
@@ -206,10 +210,34 @@
         </div>
         <!--/.Social buttons-->
 
+        <div class="card mb-3">
+            <div class="card-header">
+                <h4 class="text-center">Send Email</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ route('send.mail') }}">
+                    @csrf
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" name="email" placeholder="Send To:"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="4" name="content" placeholder="Write Message"
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success" style="width: 100%;">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
         <!--Copyright-->
         <div class="footer-copyright py-3 text-center">
             <div class="container-fluid">
-                © 2019 Copyright: <a href="http://www.MDBootstrap.com">  MDBootstrap.com </a>
+                © 2019 Copyright: <a href="http://www.MDBootstrap.com"> MDBootstrap.com </a>
 
             </div>
         </div>
